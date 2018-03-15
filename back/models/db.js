@@ -1,6 +1,6 @@
 const { Client } = require('pg');
 const db = new Client({
-  connectionString : 'postgres://dost:changeme@localhost:5432/trellodb'
+  connectionString :process.env.DATABASE_URL || 'postgres://dost:changeme@localhost:5432/trellodb'
 })
 
 db.connect((err) => {

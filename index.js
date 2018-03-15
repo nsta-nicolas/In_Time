@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const app = express();
 // install npm dotenv
+// catcher certain fichier qui ne seront pas envyer lors d'un commit 
 if(!process.env.production) {
     require("dotenv").config();
   }
