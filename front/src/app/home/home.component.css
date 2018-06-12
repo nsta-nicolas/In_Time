@@ -1,0 +1,23 @@
+nav{
+text-align: right;
+height: 150px
+}
+h4{
+color: black;
+margin: 25px 10px auto;
+}
+.test{
+height: auto;
+background-color: rgb(240, 90, 90);
+}
+.left{
+    display: flex;
+    justify-content: center;
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
+li{
+    margin: 15px auto;
+}
