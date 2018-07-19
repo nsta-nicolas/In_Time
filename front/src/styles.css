@@ -1,1 +1,115 @@
 /* You can add global styles to this file, and also import other style files */
+ 
+body{
+    background-image:url(assets/3.jpg);
+    /* background-size: auto; */
+    /* background-repeat: no-repeat; */
+
+} 
+#left_bar{
+    height: 100vh; 
+    /* border: 2px solid red; */
+}
+.left_nav{
+    border-right: 2px solid black;
+    /* border-bottom: 2px solid black; */
+    height: 100vh;
+    box-shadow: 5px 2px 15px black;
+}
+.left_nav i{
+display: flex;
+flex-direction: column;
+margin-left: 20px; 
+padding: 0 0 15px 0;
+}
+.left_nav h2{
+     writing-mode: sideways-lr;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    text-orientation: sideways;
+ }
+.contain{
+    /* border: 2px solid green; */
+    height: 99vh;
+}
+.contain i{
+    display: flex;
+    justify-content: right;
+    height: 60px;
+}
+.contain_home{
+    /* border: 2px solid blue; */
+    height: 90vh;
+}
+
+.right{
+    height: 70vh;
+    /* border:  solid green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.right li input {
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: 1px 5px 6px black;
+    /* border-bottom: 2px solid black;
+    border-top: 2px solid black;  */
+    height: 40px;
+    width:230px;
+    color: black;
+    /* color:transparent; */
+    /* cursor:default; */
+    /* background: transparent;
+
+ /* border-radius: none; */
+}
+.right li button {
+    background-color: transparent;
+    border: 0px;
+    outline: none;
+    /* -webkit-box-shadow: none;
+    -moz-box-shadow: none; */
+    /* box-shadow: 0px 2px 6px black; */
+    /* border-bottom: 2px solid black;
+    border-top: 2px solid black;  */
+    height: 40px;
+    width:230px;
+    color: black;
+    /* color:transparent; */
+    /* cursor:default; */
+    /* background: transparent;
+
+ /* border-radius: none; */
+}
+.left{
+    height: 70vh;
+    /* border:  solid green; */
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+img{
+    height: 300px;
+    width: 300px;
+    /* box-shadow: 5px 2px 15px black; */
+
+ }
+/* .champ{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     flex-direction: column;
+ } */
+ li{
+    list-style: none;
+    padding: 0 0 20px 0;
+
+}
+ .text{
+     text-align: center;
+ }

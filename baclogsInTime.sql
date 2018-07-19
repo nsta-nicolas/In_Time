@@ -18,10 +18,10 @@ CREATE TABLE search
 CREATE TABLE users 
 (
   id SERIAL PRIMARY KEY,
-  Lastname varchar(255),
-  Firstname varchar(255),
-  Addressmail varchar(255),
-  Password varchar(90)
+  lastname varchar(255),
+  firstname varchar(255),
+  addressmail varchar(255) UNIQUE,
+  Password varchar(90) UNIQUE
 );
 
 CREATE TABLE users_items

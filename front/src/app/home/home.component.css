@@ -1,6 +1,9 @@
+/* .avec{
+    border: 2px solid blue;
+} */
 nav{
 text-align: right;
-height: 150px
+/* height: 50px */
 }
 h4{
 color: black;
@@ -10,10 +13,19 @@ margin: 25px 10px auto;
 height: auto;
 background-color: rgb(240, 90, 90);
 }
-.left{
+.center{
+    /* border:  solid green; */
     display: flex;
     justify-content: center;
+    align-items: center;
 }
+.center img{
+    height: 110px;
+    margin-left: 110px;
+}
+/* .bars{
+    border: solid red;
+} */
 ul{
     list-style: none;
     padding: 0;
@@ -21,3 +33,23 @@ ul{
 li{
     margin: 15px auto;
 }
+.contain_Home{ 
+    /* border: solid 1px red; */
+    height: auto;
+    margin-left:10px;
+}
+.all_contain_Home{
+    display: flex;
+    justify-content: space-around;
+}
+.contenu{
+    height: 250px;
+    width: 220px;
+    border: ridge black;
+    /* margin-left:10px; */
+}
+/* .contenu_{
+    height: 250px;
+    width: 220px;
+    border: ridge black;
+} */

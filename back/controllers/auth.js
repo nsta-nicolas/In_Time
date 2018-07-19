@@ -5,8 +5,8 @@ const jwt = require('jsonwebtoken')
 
 const router = express.Router();
 
-router.post("/register", (req, res) => {
-  const { lastname, firstname, email, password } = req.body;
+router.post("api/register", (req, res) => {
+  const { lastname, firstname, addressmail, password } = req.body;
   user
     .notExist(email)
     .then(bool => encode(password))
@@ -14,7 +14,7 @@ router.post("/register", (req, res) => {
       user.createUser({
         firstname,
         lastname,
-        email,
+        addressmail,
         password: hash,
         role: "user"
       })
@@ -23,10 +23,10 @@ router.post("/register", (req, res) => {
     .catch(err => res.json(err));
 });
 
-router.post("/login", (req, res) => {
-  const { email, password } = req.body;
+router.post("api/login", (req, res) => {
+  const { addressmail, password } = req.body;
   user
-    .getByEmail(email)
+    .getByEmail(addressmail)
     .then(user => {
 
       // cet email n'existe en BDD
@@ -36,10 +36,10 @@ router.post("/login", (req, res) => {
 
       //password === userpassword
       return compare(password, user.password).then(authorized => {
-        const {id, firstname, lastname, email, role } = user;
+        const {id, firstname, lastname, addressmail, role } = user;
         if(authorized) {
           // generation du token
-          const token = jwt.sign({ id, email, role }, process.env.JWT_SECRET, { expiresIn: '3h' });
+          const token = jwt.sign({ id, addressmail, role }, process.env.JWT_SECRET, { expiresIn: '3h' });
           return res.json({token, user: { id, firstname, lastname }}) 
         } else {
           return res.status('401').json({error: 'bad password'}) // le mot de passe envoyé ne correspond pas au mot de passe stocké en BDD

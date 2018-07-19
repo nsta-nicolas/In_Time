@@ -1,3 +1,69 @@
-<p>
-  inscription works!
-</p>
+<div id="left_bar">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-1 left_nav">
+        <h2>keep time and follow us</h2>
+        <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-pinterest fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-facebook fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-instagram fa-2x" aria-hidden="true"></i>
+        <i class="fa fa-google fa-2x" aria-hidden="true"></i>
+      </div>
+      <div class="top col-md-11 contain">
+        <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        <div class="row">
+          <div class="col-md-12 contain_home">
+            <div class="row">
+              <div class="col-md-offset-3 col-md-5 left">
+                <img src="assets/InTimeNoir.svg">
+              </div>
+              <div class=" col-md-7 right">
+                <ul class="champ">
+                  <li>
+                    <input type="text" [(ngModel)]="user.firstname" placeholder="firstname">
+                  </li>
+                  <li>
+                    <input type="text" [(ngModel)]="user.lastname" placeholder="lastname">
+                  </li>
+                  <li>
+                    <input type="text" [(ngModel)]="user.pseudo" placeholder="pseudo">
+                  </li>
+                  <li>
+                    <input type="text" [(ngModel)]="user.addressmail" placeholder="addressmail">
+                  </li>
+                  <li>
+                    <button (click)="sendUser()">Je m'inscrit </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="text">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque obcaecati, illum, pariatur molestiae ducimus
+                voluptates, natus laudantium aut voluptate esse eos mollitia facilis laborum sint eveniet debitis delectus
+                eum recusandae.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+  <!-- <form [formGroup]="form">
+      <fieldset>
+          <legend>Login</legend>
+          <div class="form-field">
+              <label>Email:</label>
+              <input name="email" formControlName="email">
+          </div>
+          <div class="form-field">
+              <label>Password:</label>
+              <input name="password" formControlName="password" 
+                     type="password">
+          </div>
+      </fieldset>
+      <div class="form-buttons">
+          <button class="button button-primary" 
+                  (click)="login()">Login</button>
+      </div>
+  </form> -->
+</div>
