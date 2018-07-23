@@ -5,44 +5,50 @@ const { isAdmin } = require('../auth/authorizations');
 
 module.exports = express
   .Router()
-  .get('/', (req, res) => {
+
+  .get('/existe', (req, res) => {
     model
-      .getUsers()
+      .UserExist()
       .then(result => res.json(result))
       .catch(err => res.json(err));
   })
   .post('/', (req, res) => {
     const { lastname, firstname, addressmail, password, pseudo } = req.body;
-    // console.log(req.body);
+    // console.log('req.body ', req.body);
     model
       .createUser({ lastname, firstname, addressmail, password, pseudo })
       .then(() => model.getByEmail(addressmail))
       .then(result => res.send(result))
-      .catch(err => res.json(err));
-    // model.UserExist({ addressmail})
+      .catch(err => {
+        if (err.code === '23505') {
+          res.status(401).json({ duplicate: true });
+        } else {
+          res.status(500).json(err);
+        }
+      });
   })
 
-  .get('/users/:pseudo', (req, res) => {
-    const { pseudo } = req.params;
-    console.log(req.params);
-    console.log(pseudo);
-    model.getBypseudomail(pseudo).then(user => {
-      res.json(user);
-    });
+  .get('/login/:email/:pseudo', (req, res) => {
+    console.log('hoy');
+    const { pseudo, email } = req.params;
+    console.log('parameter', req.params);
+    // console.log(pseudo);
+    model
+      .getPseudoMail(email, pseudo)
+      .then(user => {
+        console.log('success', user);
+        res.json(user);
+      })
+      .catch(err => {
+        console.log('coucou', JSON.stringify(err));
+        res.status(500).json(err);
+      });
   })
   .get('/mail/:email', (req, res) => {
     const { email } = req.params;
-    console.log(email);
+    // console.log(email);
     model.getByEmail(email).then(user => {
-      console.log({ user });
-      res.json(user);
-    });
-  })
-  .get('/:firstname', (req, res) => {
-    const { firstname } = req.params;
-    console.log(firstname);
-    model.getByName(firstname).then(user => {
-      console.log({ user });
+      // console.log({ user });
       res.json(user);
     });
   })
@@ -83,7 +89,23 @@ module.exports = express
       .updateUser({ id, firstname, lastname })
       .then(result => res.json(result))
       .catch(err => res.json(err));
+  })
+  .get('/', (req, res) => {
+    console.log('ouiiiiii');
+
+    model
+      .getUsers()
+      .then(result => res.json(result))
+      .catch(err => res.json(err));
   });
+// .get('/:firstname', (req, res) => {
+//   const { firstname } = req.params;
+//   console.log(firstname);
+//   model.getByName(firstname).then(user => {
+//     console.log({ user });
+//     res.json(user);
+//   });
+// });
 // .delete('/:id', (req, res) => {
 //   const { id } = req.params;
 //   model.deleteUser(id)

@@ -35,6 +35,7 @@
                     <button (click)="sendUser()">Je m'inscrit </button>
                   </li>
                 </ul>
+                <p *ngIf="error?.error?.duplicate">uitilisateur deja existant</p>
               </div>
             </div>
             <div class="text">

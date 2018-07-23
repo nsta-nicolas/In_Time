@@ -14,16 +14,25 @@ export class InscriptionComponent implements OnInit {
     pseudo: '',
     addressmail: ''
   };
+  error;
 
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {}
   sendUser() {
-    this.api.createUser(this.user).subscribe(result => {
-      // console.log(result);
-      // localStorage.userID = result.id;
-      this.router.navigateByUrl('/home');
-    });
+    // console.log(this.user);
+    console.log('test fonctionne');
+    this.api.createUser(this.user).subscribe(
+      result => {
+        console.log('coucou', result);
+        // localStorage.userID = result.id;
+        this.router.navigateByUrl('/home');
+      },
+      error => {
+        this.error = error;
+        console.log('erreur utilisateur', error.error);
+      }
+    );
   }
   getUserById() {}
 }

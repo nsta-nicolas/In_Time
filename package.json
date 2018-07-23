@@ -22,10 +22,9 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.1.0",
-    "nodejs": "0.0.0",
     "pg": "^7.4.1"
   },
   "devDependencies": {
-    "@angular/cli": "^1.7.4"
+    "nodemon": "^1.18.3"
   }
 }

@@ -16,7 +16,7 @@ CREATE TABLE users
   firstname varchar(255),
   addressmail varchar(255) UNIQUE,
   pseudo varchar(255) UNIQUE,
-  Password varchar(90) UNIQUE
+  Password varchar(90) 
 );
 
 CREATE TABLE users_series

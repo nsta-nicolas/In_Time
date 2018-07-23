@@ -3,7 +3,9 @@ const defaultListId = 1;
 
 module.exports = {
   getUsers() {
-    return db.query('SELECT * FROM users ORDER BY id');
+    return db.query('SELECT * FROM users ORDER BY id').then(result => {
+      return result.rows;
+    });
   },
   createUser({ lastname, firstname, addressmail, password, pseudo }) {
     // console.log({ lastname, firstname, addressmail, password, pseudo });
@@ -51,15 +53,17 @@ module.exports = {
         return result.rows && result.rows.length > 0 ? result.rows[0] : false;
       });
   },
-  getBypseudomail(pseudo) {
-    // console.log(pseudomail);
+  getPseudoMail(email, pseudo) {
+    console.log('tintin', pseudo);
     return db
       .query(
-        `SELECT * FROM users WHERE addressmail='${email} and pseudo='${pseudo} '`
+        `SELECT * FROM users WHERE addressmail='${email}' and pseudo='${pseudo}'`
       )
       .then(result => {
-        // console.log(result);
-        return result.rows && result.rows.length > 0 ? result.rows[0] : false;
+        // console.log('result', result);
+        return result.rows && result.rows.length > 0
+          ? result.rows[0]
+          : Promise.reject({ notfound: true });
       });
   },
   getByName(firstname) {
@@ -81,7 +85,7 @@ module.exports = {
       .query(`SELECT * FROM users WHERE addressmail='${addressmail}'`)
       .then(result => {
         return result.rows && result.rows.length > 0
-          ? Promise.reject({ error: 'user already exists' })
+          ? Promise.reject({ error: 'user mail already exists' })
           : true;
       });
   }

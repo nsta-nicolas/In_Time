@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { log } from 'util';
 
 @Component({
   selector: 'app-index',
@@ -12,6 +13,7 @@ export class IndexComponent implements OnInit {
     pseudo: '',
     addressmail: ''
   };
+  error;
   constructor(private api: ApiService, private router: Router) {}
 
   ngOnInit() {}
@@ -22,11 +24,20 @@ export class IndexComponent implements OnInit {
     //   localStorage.userEmail = result.addressmail;
     //   this.router.navigateByUrl('/home');
     // });
-    this.api.getPseudoMail(this.user.pseudo).subscribe(result => {
-      // localStorage.userName = result.pseudo;
-      // localStorage.userName = result.addressmail;
-      this.router.navigateByUrl('/home');
-    });
+    this.api.getPseudoMail(this.user).subscribe(
+      result => {
+        console.log(result);
+
+        // console.log(this.user);
+        // localStorage.userName = result.pseudo;
+        // localStorage.userName = result.addressmail;
+        this.router.navigateByUrl('/home');
+      },
+      error => {
+        this.error = error;
+        console.log('mail non valide', error.error);
+      }
+    );
     // console.log('coucou');
   }
 }
