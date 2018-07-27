@@ -4,6 +4,12 @@ import { HttpHandler } from '@angular/common/http';
 
 @Injectable()
 export class ApiService {
+  private movie_url = 'https://api.themoviedb.org/3/';
+  private api_key = 'e9f612f1da425d22c891bc4c5a4ddde8';
+  private movie_string: string;
+  private serie_string: string;
+  private id: string;
+
   constructor(private http: HttpClient, private httphandler: HttpHandler) {}
 
   createUser(user) {
@@ -35,5 +41,61 @@ export class ApiService {
         '/' +
         user.pseudo
     );
+  }
+  getUsersSeries(user) {
+    return this.http.get(
+      'http://localhost:3030/api/users_series/users/series/' + user
+    );
+  }
+  createUsersSeries(userserie) {
+    return this.http.post(
+      'http://localhost:3030/api/users_series/users/series/',
+      userserie
+    );
+  }
+  // utilisation pour l'api MovieDb pour afficher les series et une barre de recherche
+
+  // searchMovie(movie: string) {
+  //   this.movie_string = movie;
+  //   return this.http.get(
+  //     this.movie_url +
+  //       'search/multi?query=' +
+  //       this.movie_string +
+  //       '&api_key=' +
+  //       this.api_key
+  //   );
+  // }
+  searchSerie(tv: string) {
+    // this.serie_string = tv;
+    return this.http.get(
+      this.movie_url + 'search/tv?query=' + tv + '&api_key=' + this.api_key
+    );
+  }
+  getUpcomingMovies() {
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(
+      this.movie_url +
+        'discover/tv?primary_release_date.gte=2018-04-15&primary_release_date.lte=2018-07-31' +
+        '&api_key=' +
+        this.api_key
+    );
+  }
+  getPopularMovies() {
+    return this.http.get(
+      this.movie_url +
+        'discover/movie?sort_by=popularity.desc' +
+        '&api_key=' +
+        this.api_key
+    );
+  }
+  // Methode pour recuperer ajouter lire une serie qui a etait ajouter par un utilisateur
+  getUserSeries(id) {
+    return this.http.get(
+      this.movie_url + 'tv/' + id + '?api_key=' + this.api_key
+    );
+  }
+  createSeries(serie) {
+    const userSerie = { serie: serie, userId: localStorage.userID };
+    return this.http.post('http://localhost:3030/api/series/', userSerie);
   }
 }

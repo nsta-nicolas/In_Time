@@ -20,13 +20,13 @@ export class IndexComponent implements OnInit {
   sendLogin() {
     // this.api.getUserByEmail(this.user.addressmail).subscribe(result => {
     //   console.log(result);
-    //   localStorage.userID = result.id;
     //   localStorage.userEmail = result.addressmail;
     //   this.router.navigateByUrl('/home');
     // });
     this.api.getPseudoMail(this.user).subscribe(
-      result => {
+      (result: any) => {
         console.log(result);
+        localStorage.userID = result.id;
 
         // console.log(this.user);
         // localStorage.userName = result.pseudo;

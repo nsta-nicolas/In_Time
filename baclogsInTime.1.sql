@@ -5,8 +5,10 @@ DROP TABLE IF EXISTS series;
 CREATE TABLE series
 (
   id SERIAL PRIMARY KEY,
+  api_id int,
   name VARCHAR(255),
-  description VARCHAR(255)
+  description TEXT,
+  photo VARCHAR(100)
 );
 
 CREATE TABLE users 

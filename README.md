@@ -37,3 +37,6 @@ Pour le visual studio il ne te suffit que de lancer ton "ng serve" dans le dossi
 - `history` : liste toutes les ligne de commande deja écrite
 - `ps -ef | grep node` lister les processus node
 - `kill (process)` tue le process nommer
+
+## soutien
+- `https://codingandlearning.in/building-a-movie-finder-app-using-angular-5-using-moviedb-api`

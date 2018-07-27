@@ -5,17 +5,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HomeComponent } from '../home/home.component';
 import { IndexComponent } from '../index/index.component';
-import { FpasswordComponent } from '../fpassword/fpassword.component';
 import { InscriptionComponent } from '../inscription/inscription.component';
 import { ProfilComponent } from '../profil/profil.component';
+import { SeriedetailComponent } from '../seriedetail/seriedetail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inscription', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'index', component: IndexComponent },
-  { path: 'password', component: FpasswordComponent },
   { path: 'inscription', component: InscriptionComponent },
-  { path: 'profil', component: ProfilComponent }
+  { path: 'profil', component: ProfilComponent },
+  { path: 'tv/:tvID', component: SeriedetailComponent }
 ];
 
 @NgModule({

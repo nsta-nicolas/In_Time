@@ -19,34 +19,58 @@
           </div>
         </div>
         <div class="row">
+          <h3>HOME</h3>
+        </div>
+        <div class="row">
           <div class="col-md-12 contain_Home">
-            <div class="row">
-              <h3>HOME</h3>
-              <P>Lorem elit. Soluta, pariatur sapiente! Eaque neque labore in consequuntur delectus quas a eius, aperiam placeat
-                accusantium distinctio impedit quos ipsa illum ad! Commodi!</P>
-
-              <!-- <div class=" col-md-7 right">
-              <ul class="champ">
-                  <li><input type="text" placeholder="Nom Utilisateur"></li>
-                  <li><input type="text" placeholder="mot de passe"></li>
-                  <li><a routerLink="/home"><button>Connexion</button></a></li>
-                </ul>
-            </div> -->
-            </div>
             <div class="all_contain_Home">
-              <div class="contenu">
+              <form>
+                <div class="search col-md-12">
+                  <input type="text" placeholder="recherche" name="tv" [(ngModel)]="tv">
+                </div>
+                <button class="btn-block btn-success form-control" (click)="searchSerie()">Search</button>
+                <div class="row">
+                  <div class="col-sm-4" *ngFor="let movie of search_result; let i = index">
+                    <div *ngIf="i < 6">
+                      <div class="card mt-3 mb-3">
+                        <div class="card-header text-center">
+                          {{ movie.release_date | date:'mediumDate':'yyyy' }}
+                        </div>
+                        <div class="card-body">
+                          <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="{{ movie.original_title }}"
+                            style="height: 460px">
+                          <p class="text-center">{{ movie.name }}</p>
+                          <a routerLink="/tv/{{ movie.id }}" class="btn btn-block btn-info">tv Details</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="row">
+                <div class="col-md-12">
+                  <h1>Upcoming Movies</h1>
+                </div>
               </div>
-              <div class="contenu">
-              </div>
-              <div class="contenu">
+
+              <div class="row">
+                <div class="col-md-4" *ngFor="let upcoming of upcoming_movies; let i = index">
+                  <div *ngIf="i < 3">
+                    <div class="card mt-3 mb-3">
+                      <div class="card-header text-center">
+                        {{ upcoming.release_date | date:'mediumDate' }}
+                      </div>
+                      <div class="card-body">
+                        <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}" alt="{{ upcoming.original_title }}"
+                          style="height: 460px">
+                        <p class="text-center">{{ upcoming.original_title }}</p>
+                        <a routerLink="/tv/{{ upcoming.id }}" href="#" class="btn btn-block btn-info">tv Details</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <!-- <div class="text">
-             <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Eaque obcaecati, illum, pariatur molestiae ducimus 
-                voluptates, natus laudantium aut voluptate esse eos mollitia
-                 facilis laborum sint eveniet debitis delectus eum recusandae.</p>
-           </div> -->
           </div>
         </div>
       </div>

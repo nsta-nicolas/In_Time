@@ -1,0 +1,51 @@
+<div class="container">
+
+  <div *ngIf="serie">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card mt-5 mb-5">
+          <div class="card-header">
+            {{ serie.name }}
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-5">
+                <img src="https://image.tmdb.org/t/p/w500/{{ serie.poster_path }}" class="img-fluid" alt="{{ serie.title }}">
+              </div>
+              <div class="col-sm-7">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <strong>Date de lancement de la serie: </strong> {{ serie.first_air_date | date:'dd-MM-yyyy' }}
+                  </li>
+                  <!-- <li class="list-group-item">
+                    <strong>Tagline: </strong> {{ serie.tagline }}
+                  </li> -->
+                  <li class="list-group-item">
+                    <strong>Description: </strong> {{ serie.overview }}
+                  </li>
+                  <!-- <li class="list-group-item">
+                    <strong>Runtime: </strong> {{ serie.runtime }}
+                  </li> -->
+                  <li class="list-group-item">
+                    <strong>Nombre d'épisode: </strong> {{ serie.number_of_episodes }}
+                  </li>
+                  <li class="list-group-item">
+                    <strong>Genre: </strong>
+                    <span *ngFor="let genre of serie.genres" class="badge badge-primary mr-2">
+                      {{ genre.name }}
+                    </span>
+                  </li>
+                  <li class="list-group-item">
+                    <button class="btn btn-sm btn-info float-right" (click)="addSerie()">Ajouter a mes favoris </button>
+                    <!-- <a href="#" target="_blank" class="btn btn-sm btn-info float-right">Ajouter a mes favoris</a> -->
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

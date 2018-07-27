@@ -1,0 +1,16 @@
+.center {
+  /* border:  solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.center img {
+  height: 110px;
+  margin-left: 220px;
+}
+.bars i {
+  margin: 5px 1px 0 0;
+}
+.title h4 {
+  margin-left: 20px;
+}

@@ -13,10 +13,10 @@ module.exports = express
       .catch(err => res.json(err));
   })
   .post('/', (req, res) => {
-    const { lastname, firstname, addressmail, password, pseudo } = req.body;
+    const { lastname, firstname, addressmail, pseudo } = req.body;
     // console.log('req.body ', req.body);
     model
-      .createUser({ lastname, firstname, addressmail, password, pseudo })
+      .createUser({ lastname, firstname, addressmail, pseudo })
       .then(() => model.getByEmail(addressmail))
       .then(result => res.send(result))
       .catch(err => {

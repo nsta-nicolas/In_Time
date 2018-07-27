@@ -23,9 +23,9 @@ export class InscriptionComponent implements OnInit {
     // console.log(this.user);
     console.log('test fonctionne');
     this.api.createUser(this.user).subscribe(
-      result => {
+      (result: any) => {
         console.log('coucou', result);
-        // localStorage.userID = result.id;
+        localStorage.userID = result.id;
         this.router.navigateByUrl('/home');
       },
       error => {

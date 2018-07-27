@@ -7,15 +7,14 @@ module.exports = {
       return result.rows;
     });
   },
-  createUser({ lastname, firstname, addressmail, password, pseudo }) {
+  createUser({ lastname, firstname, addressmail, pseudo }) {
     // console.log({ lastname, firstname, addressmail, password, pseudo });
     return db.query(`
-    INSERT INTO users(lastname, firstname, addressmail, password , pseudo )
-    VALUES (
+    INSERT INTO users(lastname, firstname, addressmail , pseudo )
+    VALUES ( 
     '${lastname}', 
     '${firstname}', 
     '${addressmail}', 
-    '${password}',
     '${pseudo}' 
   )`);
   },
@@ -54,7 +53,7 @@ module.exports = {
       });
   },
   getPseudoMail(email, pseudo) {
-    console.log('tintin', pseudo);
+    // console.log('tintin', pseudo);
     return db
       .query(
         `SELECT * FROM users WHERE addressmail='${email}' and pseudo='${pseudo}'`
