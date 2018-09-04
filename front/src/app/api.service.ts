@@ -42,9 +42,9 @@ export class ApiService {
         user.pseudo
     );
   }
-  getUsersSeries(user) {
+  getUsersSeries(userId) {
     return this.http.get(
-      'http://localhost:3030/api/users_series/users/series/' + user
+      'http://localhost:3030/api/users_series/users/series/' + userId
     );
   }
   createUsersSeries(userserie) {
@@ -83,7 +83,7 @@ export class ApiService {
   getPopularMovies() {
     return this.http.get(
       this.movie_url +
-        'discover/movie?sort_by=popularity.desc' +
+        'discover/tv?sort_by=popularity.desc' +
         '&api_key=' +
         this.api_key
     );

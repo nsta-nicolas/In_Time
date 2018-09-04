@@ -1,4 +1,13 @@
+<a routerLink="/home">
+  <button class="btn btn-sm btn-dark float-left" style="margin: 5px" (click)="addSerie()">
+    retour </button>
+</a>
+<p>
+  <ngb-alert *ngIf="successMessage" type="success" (close)="successMessage = null">{{ successMessage }}</ngb-alert>
+
+</p>
 <div class="container">
+
 
   <div *ngIf="serie">
     <div class="row">
@@ -36,7 +45,7 @@
                     </span>
                   </li>
                   <li class="list-group-item">
-                    <button class="btn btn-sm btn-info float-right" (click)="addSerie()">Ajouter a mes favoris </button>
+                    <button class="btn btn-sm btn-info float-right" (click)="changeSuccessMessage()" (click)="addSerie()">Ajouter a mes favoris </button>
                     <!-- <a href="#" target="_blank" class="btn btn-sm btn-info float-right">Ajouter a mes favoris</a> -->
                   </li>
                 </ul>

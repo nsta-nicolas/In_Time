@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiService } from '../api.service';
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-seriedetail',
@@ -21,6 +23,10 @@ export class SeriedetailComponent implements OnInit {
   tv: any;
 
   constructor(private router: ActivatedRoute, private api: ApiService) {}
+  private _success = new Subject<string>();
+
+  staticAlertClosed = false;
+  successMessage: string;
 
   ngOnInit() {
     this.router.params.subscribe(params => {
@@ -31,7 +37,17 @@ export class SeriedetailComponent implements OnInit {
         // console.log(data);
       });
     });
+    setTimeout(() => (this.staticAlertClosed = true), 2000);
+    this._success.subscribe(message => (this.successMessage = message));
+    this._success
+      .pipe(debounceTime(900))
+      .subscribe(() => (this.successMessage = null));
   }
+
+  public changeSuccessMessage() {
+    this._success.next(`Votre serie a était correctement ajoutè :)`);
+  }
+
   addSerie() {
     // console.log('ajout de la serie en base');
     this.api.createSeries(this.serie).subscribe(

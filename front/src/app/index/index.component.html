@@ -20,6 +20,8 @@
               <div class=" col-md-7 right">
                 <ul class="champ">
                   <li>
+                    <!-- <p id="userId" name="userId" onchange="localStorage.userId=result.pseudo"></p> -->
+
                     <input type="text" [(ngModel)]="user.pseudo" placeholder="Pseudo">
                   </li>
                   <li>
@@ -35,8 +37,8 @@
                     </a>
                   </li>
 
+                  <p *ngIf="error?.error?.notfound">champs incorecte</p>
                 </ul>
-                <p *ngIf="error?.error?.notfound">mail deja existant</p>
               </div>
             </div>
             <div class="text">

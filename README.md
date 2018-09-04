@@ -39,4 +39,12 @@ Pour le visual studio il ne te suffit que de lancer ton "ng serve" dans le dossi
 - `kill (process)` tue le process nommer
 
 ## soutien
+
 - `https://codingandlearning.in/building-a-movie-finder-app-using-angular-5-using-moviedb-api`
+
+## angular
+
+- le lancement de angular ce fait simplement avec cette ligne de commande ``
+
+manquement
+afficher le nom des uilisateur

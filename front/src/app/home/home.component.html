@@ -47,25 +47,25 @@
                   </div>
                 </div>
               </form>
-              <div class="row">
-                <div class="col-md-12">
-                  <h1>Upcoming Movies</h1>
-                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <h1>Upcoming serie</h1>
               </div>
+            </div>
 
-              <div class="row">
-                <div class="col-md-4" *ngFor="let upcoming of upcoming_movies; let i = index">
-                  <div *ngIf="i < 3">
-                    <div class="card mt-3 mb-3">
-                      <div class="card-header text-center">
-                        {{ upcoming.release_date | date:'mediumDate' }}
-                      </div>
-                      <div class="card-body">
-                        <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}" alt="{{ upcoming.original_title }}"
-                          style="height: 460px">
-                        <p class="text-center">{{ upcoming.original_title }}</p>
-                        <a routerLink="/tv/{{ upcoming.id }}" href="#" class="btn btn-block btn-info">tv Details</a>
-                      </div>
+            <div class="row">
+              <div class="col-md-4" *ngFor="let upcoming of upcoming_movies; let i = index">
+                <div *ngIf="i < 6">
+                  <div class="card mt-3 mb-3">
+                    <div class="card-header text-center">
+                      {{ upcoming.release_date | date:'mediumDate' }}
+                    </div>
+                    <div class="card-body">
+                      <p class="text-center">{{ upcoming.name }}</p>
+                      <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}" alt="{{ upcoming.original_title }}"
+                        style="height: 460px">
+                      <a routerLink="/tv/{{ upcoming.id }}" href="#" class="btn btn-block btn-info">tv Details</a>
                     </div>
                   </div>
                 </div>
@@ -73,6 +73,8 @@
             </div>
           </div>
         </div>
+
+
       </div>
     </div>
   </div>
