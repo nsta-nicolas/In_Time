@@ -47,8 +47,8 @@ app.all('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/front/index.html'));
 });
 
-const port = process.env.PORT || 3030;
 //lancer le port 3030 : nodeindex.js
+const port = process.env.PORT || 3030;
 app.listen(port, err => {
   if (err) {
     return console.log('erreur de connection');

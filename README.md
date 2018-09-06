@@ -9,24 +9,27 @@ pour cela il te suffira de stoper ton service postgresql graçe a une toute peti
 
 la branch a utiliser est dev
 Pour effectuer une mise a jour de projet
--" git status "
--" git add . "
--(" git status ", si vous voulez revoir si votre git add . a bien tout ajouter)
--" git commit -m "votre message"
--" git push"
 
--" git checkout nomdelabranche " la branch a utiliser
--" git push origin nomdelabranch" ajoute seulement dans la branche marqué
--" git diff nomdelabranch" permet de voir les difference de status entre les branch
--" git merge nomdelabranch" ajouter toutes les modification sur la branch master
+- " git status "
+- " git add . "
+- (" git status ", si vous voulez revoir si votre git add . a bien tout ajouter)
+- " git commit -m "votre message"
+- " git push"
+
+- " git checkout nomdelabranche " la branch a utiliser
+- " git push origin nomdelabranch" ajoute seulement dans la branche marqué
+- " git diff nomdelabranch" permet de voir les difference de status entre les branch
+- " git merge nomdelabranch" ajouter toutes les modification sur la branch master
 
 ## heroku master
 
 la branche a utiliser est master
--" git checkout nomdelabranche " la branch a utiliser
--" git push origin nomdelabranch" ajoute seulement dans la branche marqué
--" git diff nomdelabranch" permet de voir les difference de status entre les branch
--" git merge nomdelabranch" ajouter toutes les modification sur la branch master
+
+- " git checkout nomdelabranche " la branch a utiliser
+- " git push origin nomdelabranch" ajoute seulement dans la branche marqué
+- " git diff nomdelabranch" permet de voir les difference de status entre les branch
+- " git merge nomdelabranch" ajouter toutes les modification sur la branch master
+  -(Pour ajouter le site en ligne il te faudra faire les modification de la branche DEV)
 
 ## visual studio
 
@@ -48,3 +51,5 @@ Pour le visual studio il ne te suffit que de lancer ton "ng serve" dans le dossi
 
 manquement
 afficher le nom des uilisateur
+
+## Aurevoir Merci

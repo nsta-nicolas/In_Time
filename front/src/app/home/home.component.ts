@@ -8,16 +8,21 @@ import { Subscriber } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  popular_movies: any;
-  upcoming_movies: any;
+  popular_series: any;
+  upcoming_series: any;
   search_result: any;
   movie: any;
   tv: string; // zone de recherche
 
   constructor(private api: ApiService) {
-    this.api.getUpcomingMovies().subscribe(data => {
-      this.upcoming_movies = data['results'];
-      // console.log(this.upcoming_movies);
+    this.api.getUpcomingSeries().subscribe(data => {
+      this.upcoming_series = data['results'];
+      // console.log(this.upcoming_series);
+    });
+
+    this.api.getPopularSeries().subscribe(data => {
+      this.popular_series = data['results'];
+      console.log(this.popular_series);
     });
   }
 

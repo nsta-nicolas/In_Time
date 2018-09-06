@@ -71,19 +71,20 @@ export class ApiService {
       this.movie_url + 'search/tv?query=' + tv + '&api_key=' + this.api_key
     );
   }
-  getUpcomingMovies() {
+  getUpcomingSeries() {
     // tslint:disable-next-line:max-line-length
     return this.http.get(
       this.movie_url +
-        'discover/tv?primary_release_date.gte=2018-04-15&primary_release_date.lte=2018-07-31' +
+        'discover/tv?primary_release_date.gte=2018-04-15&primary_release_date.lte=2018-08-31' +
         '&api_key=' +
         this.api_key
     );
   }
-  getPopularMovies() {
+
+  getPopularSeries() {
     return this.http.get(
       this.movie_url +
-        'discover/tv?sort_by=popularity.desc' +
+        'discover/tv?page=2' +
         '&api_key=' +
         this.api_key
     );
