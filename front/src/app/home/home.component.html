@@ -11,17 +11,110 @@
       </div>
       <div class="top col-md-11 contain">
         <div class="row">
-          <div class=" col-md-9 center">
+          <div class=" col-md-11 center">
             <img src="assets/InTimeNoir.svg">
           </div>
-          <div class="col-md-3 bars">
-            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+          <div class="col-md-1 bars">
+            <a routerLink="/profil" style="color:black;">
+              <h2>
+                <i aria-hidden="true">profil</i>
+              </h2>
+            </a>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <br>
+  <!-- <div class="row">
+      <div class="col-sm-12">
+        <h1>Search tv</h1>
+      </div>
+    </div> -->
+
+  <div class="row">
+    <div class="col-sm-12">
+      <form>
         <div class="row">
-          <h3>HOME</h3>
+          <div class="col-md-9">
+            <input type="text" class="form-control" placeholder="Search series" name="tv" [(ngModel)]="tv">
+          </div>
+          <div class="col-md-3">
+            <button class="btn-block btn-info form-control" (click)="searchSerie()">Search</button>
+          </div>
         </div>
-        <div class="row">
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let search of search_result; let i = index">
+      <div *ngIf="i < 3">
+        <div class="card mt-3 mb-3">
+          <div class="card-header text-center">
+            {{ search.release_date | date:'mediumDate':'yyyy' }}
+          </div>
+          <div class="card-body">
+            <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ search.poster_path }}" alt="{{ search.original_title }}"
+              style="height: 460px">
+            <p class="text-center">{{ search.original_title }}</p>
+            <a routerLink="/tv/{{ search.id }}" href="#" class="btn btn-block btn-info">tv Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Série à venir</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let upcoming of upcoming_series; let i = index">
+      <div *ngIf="i < 6">
+        <div class="card mt-3 mb-3">
+          <div class="card-header text-center">
+            {{ upcoming.release_date | date:'mediumDate' }}
+          </div>
+          <div class="card-body">
+            <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}" alt="{{ upcoming.original_title }}"
+              style="height: 460px">
+            <p class="text-center">{{ upcoming.name }}</p>
+            <a routerLink="/tv/{{ upcoming.id }}" href="#" class="btn btn-block btn-info">tv Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Série Populaire</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let popular of popular_series; let i = index">
+      <div *ngIf="i < 6">
+        <div class="card mt-3 mb-3">
+          <div class="card-header text-center">
+            {{ popular.release_date | date:'mediumDate' }}
+          </div>
+          <div class="card-body">
+            <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ popular.poster_path }}" alt="{{ popular.original_title }}"
+              style="height: 460px">
+            <p class="text-center">{{ popular.name }}</p>
+            <a routerLink="/tv/{{ popular.id }}" href="#" class="btn btn-block btn-info">tv Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
           <div class="col-md-12 contain_Home">
             <div class="all_contain_Home">
               <form>
@@ -39,7 +132,7 @@
                         <div class="card-body">
                           <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}" alt="{{ movie.original_title }}"
                             style="height: 460px">
-                          <p class="text-center">{{ movie.name }}</p>
+                          <h3 class="text-center">{{ movie.name }}</h3>
                           <a routerLink="/tv/{{ movie.id }}" class="btn btn-block btn-info">tv Details</a>
                         </div>
                       </div>
@@ -62,7 +155,7 @@
                       {{ upcoming.release_date | date:'mediumDate' }}
                     </div>
                     <div class="card-body">
-                      <p class="text-center">{{ upcoming.name }}</p>
+                      <h6 class="text-center">{{ upcoming.name }}</h6>
                       <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}" alt="{{ upcoming.original_title }}"
                         style="height: 460px">
                       <a routerLink="/tv/{{ upcoming.id }}" href="#" class="btn btn-block btn-info">tv Details</a>
@@ -94,11 +187,8 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
-      </div>
-    </div>
-  </div>
+
   <router-outlet></router-outlet>
-</div>

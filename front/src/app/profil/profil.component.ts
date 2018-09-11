@@ -10,7 +10,7 @@ import { IndexComponent } from '../index/index.component';
 export class ProfilComponent implements OnInit {
   userserie: any;
   series: any;
-
+  users: any;
   constructor(private api: ApiService) {}
 
   ngOnInit() {
@@ -20,12 +20,12 @@ export class ProfilComponent implements OnInit {
         console.log(data);
       });
     }
-    // if (localStorage.userID) {
-    //   this.api.getUserById(localStorage.userID).subscribe(data => {
-    //     this.users = data;
-    //     console.log(data);
-    //   });
-    // }
+    if (localStorage.Pseudo) {
+      this.api.getUserByPseudo(localStorage.Pseudo).subscribe(data => {
+        this.users = data;
+        console.log(data);
+      });
+    }
   }
   addUsersSeries() {
     this.api.createUsersSeries(this.userserie).subscribe();

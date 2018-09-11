@@ -14,29 +14,27 @@ export class ApiService {
 
   createUser(user) {
     // console.log(user);
-    return this.http.post('http://localhost:3030/api/users/', user);
+    return this.http.post('http://localhost:3330/api/users/', user);
 
     // la fonction createUser utilise une methode HTTP post qui elle me permet de creer un utilisateur
     // http post me revoie un obsevable,
     // pour observer et declancher un obsevable, il faut appeler la methode subscribe de observalbe (cf.inscription.component.ts )
   }
   UserExist(existe) {
-    return this.http.get('http://localhost:3030/api/users/' + existe);
+    return this.http.get('http://localhost:3330/api/users/' + existe);
   }
-  getUserById(id) {
-    return this.http.get(
-      'http://localhost:3030/api/users/' + localStorage.userID
-    );
+  getUserByPseudo(pseudo) {
+    return this.http.get('http://localhost:3330/api/users/' + pseudo);
   }
   getUserByEmail(email) {
-    return this.http.get('http://localhost:3030/api/users/mail/' + email);
+    return this.http.get('http://localhost:3330/api/users/mail/' + email);
   }
   getUserByFirstname(firstname) {
-    return this.http.get('http://localhost:3030/api/users/' + firstname);
+    return this.http.get('http://localhost:3330/api/users/' + firstname);
   }
   getPseudoMail(user) {
     return this.http.get(
-      'http://localhost:3030/api/users/login/' +
+      'http://localhost:3330/api/users/login/' +
         user.addressmail +
         '/' +
         user.pseudo
@@ -44,12 +42,12 @@ export class ApiService {
   }
   getUsersSeries(userId) {
     return this.http.get(
-      'http://localhost:3030/api/users_series/users/series/' + userId
+      'http://localhost:3330/api/users_series/users/series/' + userId
     );
   }
   createUsersSeries(userserie) {
     return this.http.post(
-      'http://localhost:3030/api/users_series/users/series/',
+      'http://localhost:3330/api/users_series/users/series/',
       userserie
     );
   }
@@ -83,10 +81,7 @@ export class ApiService {
 
   getPopularSeries() {
     return this.http.get(
-      this.movie_url +
-        'discover/tv?page=2' +
-        '&api_key=' +
-        this.api_key
+      this.movie_url + 'discover/tv?page=2' + '&api_key=' + this.api_key
     );
   }
   // Methode pour recuperer ajouter lire une serie qui a etait ajouter par un utilisateur
@@ -97,6 +92,6 @@ export class ApiService {
   }
   createSeries(serie) {
     const userSerie = { serie: serie, userId: localStorage.userID };
-    return this.http.post('http://localhost:3030/api/series/', userSerie);
+    return this.http.post('http://localhost:3330/api/series/', userSerie);
   }
 }

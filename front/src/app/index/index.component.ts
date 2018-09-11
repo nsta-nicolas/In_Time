@@ -27,6 +27,8 @@ export class IndexComponent implements OnInit {
       (result: any) => {
         console.log(result);
         localStorage.userID = result.id;
+        localStorage.Pseudo = result.pseudo;
+
         // localStorage.getItem('result.pseudo');
 
         // console.log(this.user);

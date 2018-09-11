@@ -1,3 +1,7 @@
+.left_nav {
+  position: fixed;
+  height: 100vh;
+}
 .center {
   /* border:  solid green; */
   display: flex;
@@ -6,11 +10,16 @@
 }
 .center img {
   height: 110px;
-  margin-left: 220px;
+  /* margin-left: 220px; */
 }
 .bars i {
   margin: 5px 1px 0 0;
 }
 .title h4 {
   margin-left: 20px;
+}
+@media screen and (max-width: 760px) {
+  .left_nav {
+    display: none;
+  }
 }

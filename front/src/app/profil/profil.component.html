@@ -11,41 +11,51 @@
       </div>
       <div class="top col-md-11 contain">
         <div class="row">
-          <div class=" col-md-9 center">
-            <img src="assets/InTimeNoir.svg">
+          <div class=" col-md-11 center">
+            <a routerLink="/home">
+              <img src="assets/InTimeNoir.svg">
+            </a>
           </div>
-          <div class="col-md-3 bars">
-            <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12 title">
-            <h1>Profil </h1>
-            <br>
-            <h4>Mes Série suivie</h4>
-            <div class="row">
-
-              <div class="row">
-                <div class="col-md-4" *ngFor="let serie of series; let i = index">
-                  <div class="card mt-3 mb-3">
-                    <div class="card-header text-center">
-                      {{ serie.release_date | date:'mediumDate' }}
-                    </div>
-                    <div class="card-body">
-                      <p class="text-center">{{ serie.name }}</p>
-                      <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500{{ serie.photo }}" alt="{{ serie.original_title }}"
-                        style="height: 460px">
-                      <a routerLink="/tv/{{ serie.id }}" href="#" class="btn btn-block btn-info">tv Details</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+          <div class="col-md-1 bars">
+            <a routerLink="/home" style="color:black;">
+              <h2>
+                <i aria-hidden="true">accueil</i>
+              </h2>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <router-outlet></router-outlet>
 </div>
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-12 title">
+      <div *ngFor="let user of users; let i = index">
+        <h1>
+          Profil/{{user.pseudo}} </h1>
+      </div>
+      <br>
+      <h4>Mes Série suivie</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let serie of series; let i = index">
+      <div class="card mt-3 mb-3">
+        <div class="card-header text-center">
+          {{ serie.release_date | date:'mediumDate' }}
+        </div>
+        <div class="card-body">
+          <p class="text-center">{{ serie.name }}</p>
+          <img class="card-img-top img-fluid" src="https://image.tmdb.org/t/p/w500{{serie.photo }}" alt="{{ serie.original_title }}"
+            style="height: 460px">
+          <a routerLink="/tv/{{ serie.id }}" href="#" class="btn btn-block btn-info">tv Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

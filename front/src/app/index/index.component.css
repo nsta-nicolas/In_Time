@@ -1,0 +1,12 @@
+.left_nav {
+  /* position: fixed; */
+  height: 100vh;
+}
+@media screen and (max-width: 760px) {
+  .left_nav {
+    display: inline;
+    border-right: 2px solid black;
+    height: auto;
+    box-shadow: 5px 2px 15px black;
+  }
+}

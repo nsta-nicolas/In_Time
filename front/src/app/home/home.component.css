@@ -1,16 +1,11 @@
-/* .avec{
-    border: 2px solid blue;
-} */
 nav {
   text-align: right;
   /* height: 50px */
 }
-/* .left_nav h2 {
-  writing-mode: sideways-lr;
-  margin-left: 20px;
-  margin-bottom: 40px;
-  text-orientation: sideways;
-} */
+.left_nav {
+  position: fixed;
+  height: 100vh;
+}
 h4 {
   color: black;
   margin: 25px 10px auto;
@@ -27,7 +22,7 @@ h4 {
 }
 .center img {
   height: 110px;
-  margin-left: 110px;
+  /* margin-left: 220px; */
 }
 /* .bars{
     border: solid red;
@@ -53,4 +48,12 @@ li {
   width: 220px;
   border: ridge black;
   /* margin-left:10px; */
+}
+.card-body {
+  border-radius: none;
+}
+@media screen and (max-width: 760px) {
+  .left_nav {
+    display: none;
+  }
 }

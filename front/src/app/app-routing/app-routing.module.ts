@@ -10,7 +10,7 @@ import { ProfilComponent } from '../profil/profil.component';
 import { SeriedetailComponent } from '../seriedetail/seriedetail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/inscription', pathMatch: 'full' },
+  { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'index', component: IndexComponent },
   { path: 'inscription', component: InscriptionComponent },

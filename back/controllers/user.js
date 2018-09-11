@@ -27,7 +27,22 @@ module.exports = express
         }
       });
   })
-
+  .get('/:pseudo', (req, res) => {
+    console.log('user');
+    const { pseudo } = req.params;
+    console.log('user params', req.params);
+    // console.log(pseudo);
+    model
+      .getUserByPseudo(pseudo)
+      .then(user => {
+        console.log('success', user);
+        res.json(user);
+      })
+      .catch(err => {
+        console.log('coucou', JSON.stringify(err));
+        res.status(500).json(err);
+      });
+  })
   .get('/login/:email/:pseudo', (req, res) => {
     console.log('hoy');
     const { pseudo, email } = req.params;

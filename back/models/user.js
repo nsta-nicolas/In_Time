@@ -74,10 +74,18 @@ module.exports = {
         return result.rows && result.rows.length > 0 ? result.rows[0] : false;
       });
   },
-  getById(id) {
+  getUserById(id) {
     return db.query(`SELECT * FROM users WHERE id=${id}`).then(result => {
       return result.rows && result.rows.length > 0 ? result.rows[0] : false;
     });
+  },
+  getUserByPseudo(pseudo) {
+    return db
+      .query(`SELECT * FROM users WHERE pseudo='${pseudo}'`)
+      .then(result => {
+        // console.log(result);
+        return result.rows && result.rows.length > 0 ? result.rows : false;
+      });
   },
   UserExist(addressmail) {
     return db
